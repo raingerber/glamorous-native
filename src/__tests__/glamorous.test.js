@@ -109,3 +109,23 @@ it('styles as properties should have highest priority', () => {
     />,
   ).toJSON()).toMatchSnapshot()
 })
+
+describe.only('propsAreStyleOverrides', () => {
+  // it('should not throw an error', () => {
+  //   expect(renderer.create(
+  //     <glamorous.view backgroundColor='green' />,
+  //   ).toJSON()).toMatchSnapshot()
+  // })
+
+  it('should throw an error', () => {
+    const StyledView = glamorous(View, { propsAreStyleOverrides: false })()
+    expect(() => renderer.create(<StyledView backgroundColor='green' />)).toThrowErrorMatchingSnapshot()
+  })
+
+  // it('should not throw an error', () => {
+  //   const StyledView = glamorous(View)()
+  //   expect(renderer.create(
+  //     <StyledView />,
+  //   ).toJSON()).toMatchSnapshot()
+  // })
+})

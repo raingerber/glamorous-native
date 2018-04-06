@@ -53,11 +53,11 @@ export interface GlamorousOptions<Props, Context, DefaultProps> {
     context: Context,
     prevContext: Context
   ) => boolean
-  propsAreCssOverrides?: false
+  propsAreStyleOverrides?: false
   withProps: DefaultProps
 }
 
-export interface PropsAreCssOverridesGlamorousOptions<
+export interface propsAreStyleOverridesGlamorousOptions<
   Props,
   Context,
   DefaultProps
@@ -71,7 +71,7 @@ export interface PropsAreCssOverridesGlamorousOptions<
     context: Context,
     prevContext: Context
   ) => boolean
-  propsAreCssOverrides: true
+  propsAreStyleOverrides: true
   withProps?: DefaultProps
 }
 

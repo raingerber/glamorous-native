@@ -24,7 +24,7 @@ export interface BuiltInGlamorousComponentFactory<ElementProps, Properties> {
 
 // # dom tag - component factories glamorous('div')
 
-// ## without propsAreCssOverides
+// ## without propsAreStyleOverrides
 
 // * without Theme
 export interface KeyGlamorousComponentFactory<
@@ -57,7 +57,7 @@ export interface KeyGlamorousComponentFactory<
   >
 }
 
-// ## with propsAreCssOverides
+// ## with propsAreStyleOverrides
 
 // * without Theme
 export interface KeyGlamorousComponentFactoryCssOverides<
@@ -92,7 +92,7 @@ export interface KeyGlamorousComponentFactoryCssOverides<
 
 // # react component - component factories glamorous(Component)
 
-// ## without propsAreCssOverides
+// ## without propsAreStyleOverrides
 
 // * without Theme
 export interface GlamorousComponentFactory<
@@ -117,7 +117,7 @@ export interface GlamorousComponentFactory<
   ): GlamorousComponent<ExternalProps & Partial<DefaultProps> & Props, Props>
 }
 
-// ## with propsAreCssOverides
+// ## with propsAreStyleOverrides
 
 // * without Theme
 export interface GlamorousComponentFactoryCssOverides<

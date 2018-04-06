@@ -20,13 +20,18 @@ function prepareStyles(styles) {
 }
 
 export default function createGlamorous(splitProps) {
-  return function glamorous(
-    comp,
-    {rootEl, displayName, forwardProps = []} = {},
-  ) {
+  return glamorous
+  function glamorous(comp, config = {}) {
+    const {
+      rootEl,
+      displayName,
+      forwardProps = [],
+      propsAreStyleOverrides = comp.propsAreStyleOverrides,
+    } = config
     return glamorousComponentFactory
 
     function glamorousComponentFactory(...unpreparedStyles) {
+      // console.log(unpreparedStyles)
       const styles = prepareStyles(unpreparedStyles)
 
       class GlamorousComponent extends React.Component {
@@ -101,7 +106,7 @@ export default function createGlamorous(splitProps) {
             typeof GlamorousComponent.comp === 'function' &&
             !GlamorousComponent.comp.prototype.render
 
-          return React.createElement(
+            return React.createElement(
             GlamorousComponent.comp,
             {
               ...toForward,
@@ -156,6 +161,9 @@ export default function createGlamorous(splitProps) {
           forwardProps,
           displayName,
         }),
+        {
+          propsAreStyleOverrides
+        },
       )
 
       return GlamorousComponent
